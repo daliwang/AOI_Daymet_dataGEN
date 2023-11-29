@@ -41,13 +41,13 @@ def main():
         print("Error: Invalid AOI_points_file, see help.")
 
     # save to the 1D domain file
-    AOIsurfdata = str(AOI)+'surfdata.nc'
+    AOIsurfdata = str(AOI)+'_surfdata.nc'
 
     # check if file exists then delete it
     if os.path.exists(AOIsurfdata):
         os.remove(AOIsurfdata)
 
-    source_file = 'Daymet4.1km.1d.surfdata_v1_part1.nc'
+    source_file = 'Daymet4.1km.1d.surfdata_v1.nc'
     dst = nc.Dataset(AOIsurfdata, 'w', format='NETCDF4')
 
     # open the 1D domain data

@@ -52,7 +52,7 @@ def main():
         user_option = 3
 
     # save to the 1D domain file
-    AOIdomain = str(AOI)+'domain.nc'
+    AOIdomain = str(AOI)+'_domain.nc'
 
     # check if file exists then delete it
     if os.path.exists(AOIdomain):
