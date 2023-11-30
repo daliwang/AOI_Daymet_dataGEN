@@ -173,7 +173,8 @@ def main():
 
     # Copy the variables from the source to the target
     for name, variable in src.variables.items():
-        x = dst.createVariable(name, variable.datatype, variable.dimensions)   
+        x = dst.createVariable(name, variable.datatype, variable.dimensions, \
+            zlib=True, complevel=5)   
         print(name, variable.dimensions)
         
         if (name != 'lambert_conformal_conic'):

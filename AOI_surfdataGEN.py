@@ -47,7 +47,7 @@ def main():
     if os.path.exists(AOIsurfdata):
         os.remove(AOIsurfdata)
 
-    source_file = 'Daymet4.1km.1d.surfdata_v1.nc'
+    source_file = 'Daymet4.1km.1d.surfdata.nc'
     dst = nc.Dataset(AOIsurfdata, 'w', format='NETCDF4')
 
     # open the 1D domain data
@@ -82,7 +82,8 @@ def main():
     for name, variable in src.variables.items():
 
         if (len(variable.dimensions) == 0 or variable.dimensions[-1] != 'gridcell'):
-            x = dst.createVariable(name, variable.datatype, variable.dimensions)   
+            x = dst.createVariable(name, variable.datatype, variable.dimensions,\
+                zlib=True, complevel=5)   
             print(name, variable.dimensions)
             # Copy variable attributes
             dst[name].setncatts(src[name].__dict__)
