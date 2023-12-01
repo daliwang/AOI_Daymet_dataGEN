@@ -47,7 +47,7 @@ def main():
     if os.path.exists(AOIsurfdata):
         os.remove(AOIsurfdata)
 
-    source_file = 'Daymet4.1km.1d.surfdata.nc'
+    source_file = input_path + 'Daymet4.1km.1d.surfdata.nc'
     dst = nc.Dataset(AOIsurfdata, 'w', format='NETCDF4')
 
     # open the 1D domain data

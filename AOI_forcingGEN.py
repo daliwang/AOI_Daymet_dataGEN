@@ -114,7 +114,7 @@ def main():
     else:
         time = -1
 
-    if (AOI_gridID_file.endswith(gridID.csv)):
+    if (AOI_gridID_file.endswith('gridID.csv')):
         #AOI_gridcell_file = AOI+'_gridID.csv'  # user provided gridcell IDs
         df = pd.read_csv(AOI_gridID_file, sep=",", skiprows=1, names = ['gridID'])
         #read gridIds
