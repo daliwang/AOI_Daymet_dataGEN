@@ -107,10 +107,10 @@ def main():
     AOI_gridID_file = args[2]
     AOI=AOI_gridID_file.split("_")[0]
 
-    test = 1  # If it is test case 
+    test = 0  # 1 ->  it is test case 
     if test == 1:
         time = 1
-    else
+    else:
         time = -1
 
     if (AOI_gridID_file.endswith(gridID.csv)):
@@ -118,7 +118,7 @@ def main():
         df = pd.read_csv(AOI_gridID_file, sep=",", skiprows=1, names = ['gridID'])
         #read gridIds
         AOI_points = np.array(df['gridID'])
-    elif filename.endswith('domain.nc'):
+    elif AOI_gridID_file.endswith('domain.nc'):
         src = nc.Dataset(AOI_gridID_file, 'r')
         AOI_points = src['gridID'][:]
     else:
