@@ -58,7 +58,7 @@ def AOI_forcing_save_1d(input_path, file, AOI, AOI_points, var_name, period, tim
     dst.title = var_name + '('+period+') creted from '+ input_path +' on ' +formatted_date
 
     # create the gridIDs, lon, and lat variable
-    x = dst.createDimension('gridcell', len(AOI_points))
+    x = dst.createDimension('gridcell', AOI_points.size)
     x = dst.createDimension('time', time)
 
     w_nc_var = dst.createVariable('gridID', np.int32, ('gridcell',))
@@ -108,7 +108,7 @@ def main():
     AOI_gridID_file = args[2]
     AOI=AOI_gridID_file.split("_")[0]
 
-    test = 0  # 1 ->  it is test case 
+    test = 1  # 1 ->  it is test case 
     if test == 1:
         time = 1
     else:
