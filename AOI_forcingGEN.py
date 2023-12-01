@@ -71,7 +71,8 @@ def AOI_forcing_save_1d(input_path, file, AOI, AOI_points, var_name, period, tim
     for name, variable in src.variables.items():
         if (name == var_name):
             print(variable.datatype)
-            w_nc_var = dst.createVariable(var_name, np.float32, ('time', 'gridcell'))
+            w_nc_var = dst.createVariable(var_name, np.float32, ('time', 'gridcell'), \
+                zlib=True, complevel=5)
             dst.variables[var_name][:] =data_arr
             for attr_name in variable.ncattrs():
                 dst[name].setncattr(attr_name, variable.getncattr(attr_name))
